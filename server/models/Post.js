@@ -12,7 +12,8 @@ const PostSchema = new mongoose.Schema(
     imgUrl2: { type: String, default: '' },
     price: { type: Number, default: 0 },
     announce: { type: Number, default: 0 },
-    announcedate: { type: Number, default: 0 },
+    announcedate: { type: Date },
+    endannounce: { type: Number, default: 0 },
     bid: { type: Number, default: 0 },
   },
   { timestamps: true }

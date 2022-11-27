@@ -4,7 +4,9 @@
 @layer base {
     * {
         box-sizing: border-box;
-        img: 100%;
+    }
+    img {
+        width: 100%;
     }
     body {
         font-family: 'Poppins', sans-serif;

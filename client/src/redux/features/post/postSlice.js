@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../../utils/axios';
-import { toast } from 'react-toastify';
 
 const initialState = {
   posts: [],
@@ -15,7 +14,6 @@ export const createPost = createAsyncThunk(
     try {
       const { data } = await axios.post('/posts', params);
       console.log('postSlice ===', data);
-      // toast(data.message);
       return data;
     } catch (error) {
       console.log(error);

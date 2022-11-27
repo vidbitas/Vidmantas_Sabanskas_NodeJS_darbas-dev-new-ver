@@ -1,88 +1,16 @@
-// import express from 'express';
-// import { createServer } from 'http';
-// import { Server } from 'socket.io';
-// import session from 'express-session';
-
-// const app = express();
-// const httpServer = createServer(app);
-
-// // const io = Server(http, {
-// //   cors: {
-// //     origin: 'http://localhost:3000',
-// //   },
-// // });
-
-// const sessionMiddleware = session({
-//   secret: 'changeit',
-//   resave: false,
-//   saveUninitialized: false,
-// });
-
-// app.use(sessionMiddleware);
-
-// app.post('/login', (req, res) => {
-//   req.session.authenticated = true;
-//   res.status(204).end();
-// });
-
-// const io = new Server(httpServer);
-
-// // convert a connect middleware to a Socket.IO middleware
-// const wrap = (middleware) => (socket, next) =>
-//   middleware(socket.request, {}, next);
-
-// io.use(wrap(sessionMiddleware));
-
-// // only allow authenticated users
-// io.use((socket, next) => {
-//   const session = socket.request.session;
-//   if (session && session.authenticated) {
-//     next();
-//   } else {
-//     next(new Error('unauthorized'));
-//   }
-// });
-
-// io.on('connection', (socket) => {
-//   console.log(socket.request.session);
-// });
-
-// app.listen(5000, () => console.log('Server on'));
-
-///////////////////////////////////////////////
 import express from 'express';
-import { createServer } from 'http';
-import { Server } from 'socket.io';
-import session from 'express-session';
-import http from 'http';
-// import { createServer } from 'http';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import morgan from 'morgan';
-// const server = createServer(app);
 import fileUpload from 'express-fileupload';
-// const server = require('http').createServer();
-// const socketIo = require('socket.io')(server);
 import authRoute from './routes/auth.js';
 import postRoute from './routes/posts.js';
 import commentRoute from './routes/comments.js';
-import socketRoute from './routes/socketRoute.js';
 
 dotenv.config();
 
 const app = express();
-// const httpServer = createServer(app);
-
-// const io = new Server(httpServer, {
-//   cors: {
-//     origin: 'http://localhost:3000',
-//   },
-// });
-
-// const io = new Server(httpServer);
-// app.set('socketio', io);
-// socketRoute(io);
 
 // Constants
 const PORT = process.env.PORT || 3001;

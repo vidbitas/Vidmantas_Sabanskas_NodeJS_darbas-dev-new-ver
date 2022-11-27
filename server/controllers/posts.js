@@ -6,11 +6,10 @@ import { fileURLToPath } from 'url';
 
 // Create Post
 export const createPost = async (req, res) => {
+  const { title, text, image, imgUrl2, price, announce, announcedate } =
+    req.body;
   try {
-    const { title, text, imgUrl2, price, announce, announceDate, bid } =
-      req.body;
     const user = await User.findById(req.userId);
-
     if (req.files) {
       // let fileName = Date.now().toString() + req.files.image.name;
       let fileName = req.files.image.name;
@@ -21,13 +20,12 @@ export const createPost = async (req, res) => {
         username: user.username,
         title,
         text,
-        imgUrl: '',
-        author,
+        imgUrl: fileName,
+        author: req.userId,
         imgUrl2,
         price,
         announce,
-        announceDate,
-        bid,
+        announcedate,
       });
 
       await newPostWithImage.save();
@@ -44,14 +42,11 @@ export const createPost = async (req, res) => {
       text,
       imgUrl: '',
       author: req.userId,
-      imgUrl2,
-      price,
-      announce,
-      announceDate,
-      bid,
+      imgUrl2: imgUrl2,
+      price: price,
+      announce: announce,
+      announcedate: announcedate,
     });
-
-    console.log('posts controller ==== ', newPostWithoutImage);
 
     await newPostWithoutImage.save();
     await User.findByIdAndUpdate(req.userId, {

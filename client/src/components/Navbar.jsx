@@ -16,11 +16,8 @@ export const Navbar = () => {
 
   const logoutHandler = () => {
     dispatch(logout());
-    // window.localStorage.removeItem(loginUserName._id);
     sessionStorage.removeItem(loginUserName._id);
     sessionStorage.removeItem('user');
-    // window.localStorage.removeItem(loginUserName.username);
-    // window.localStorage.removeItem('user');
     toast('You are logged out');
     navigate('/');
   };

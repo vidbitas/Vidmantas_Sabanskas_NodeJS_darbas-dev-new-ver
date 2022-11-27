@@ -7,8 +7,6 @@ const instance = axios.create({
 instance.interceptors.request.use((config) => {
   const userId = sessionStorage.getItem('user');
   config.headers.Authorization = sessionStorage.getItem(userId);
-  // const userId = window.localStorage.getItem('user');
-  // config.headers.Authorization = window.localStorage.getItem(userId);
 
   return config;
 });

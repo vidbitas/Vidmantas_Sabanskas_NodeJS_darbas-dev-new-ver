@@ -31,7 +31,7 @@ export const PostPage = () => {
   const params = useParams();
   const dispatch = useDispatch();
 
-  // console.log('PostPage.jsx === ', comments, params);
+  console.log('PostPage.jsx === ', comments, params);
   const removePostHandler = () => {
     try {
       dispatch(removePost(params.id));
@@ -84,7 +84,6 @@ export const PostPage = () => {
           Back
         </Link>
       </button>
-
       <div className='flex gap-10 py-8 w-2/3'>
         <div className='w-2/3'>
           <div className='flex flex-col basis-1/4 flex-grow'>

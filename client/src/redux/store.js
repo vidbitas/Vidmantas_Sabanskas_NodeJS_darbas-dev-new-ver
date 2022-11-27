@@ -8,6 +8,5 @@ export const store = configureStore({
     auth: authSlice,
     post: postSlice,
     comment: commentSlice,
-    count: 0,
   },
 });

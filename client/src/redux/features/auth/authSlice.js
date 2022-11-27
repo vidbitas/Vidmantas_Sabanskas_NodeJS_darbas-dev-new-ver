@@ -21,9 +21,6 @@ export const registerUser = createAsyncThunk(
       });
 
       if (data.token) {
-        // window.localStorage.setItem('token', data.token);
-        // window.localStorage.setItem(data.user._id, data.token);
-        // window.localStorage.setItem(username, data.token);
         toast(data.message);
       }
       return data;
@@ -43,13 +40,8 @@ export const loginUser = createAsyncThunk(
       });
 
       if (data.token) {
-        // window.localStorage.setItem('token', data.token);
-        // window.localStorage.setItem('user', data.user._id);
-        // window.localStorage.setItem(data.user._id, '*');
-        // window.localStorage.setItem(username, data.token);
         sessionStorage.setItem('user', data.user._id);
         sessionStorage.setItem(data.user._id, data.token);
-        // data.users.push({ username: username, id: data.user._id });
         console.log(data);
       } else {
       }
